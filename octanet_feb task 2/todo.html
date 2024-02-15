@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://kit.fontawesome.com/f30fac2c61.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="To.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>To Do List</h1>
+        <div class="inputs">
+            <input type="text" placeholder="Enter" id="inp">
+            <button onclick="Add()">Add</button>
+        </div>
+        <div class="text">
+
+        </div>
+    </div>
+
+    <script>
+        let inputs = document.getElementById("inp");
+        let text = document.querySelector(".text");
+
+        function Add() {
+            if (inputs.value == "") {
+                alert("Please Enter Task")
+            } else {
+                let newEle = document.createElement("ul");
+                newEle.innerHTML = `${inputs.value} <i class="fa-solid fa-trash"></i>`;
+                text.appendChild(newEle);
+                inputs.value = "";
+                newEle.querySelector("i").addEventListener("click", remove);
+                function remove() {
+                    newEle.remove()
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>
